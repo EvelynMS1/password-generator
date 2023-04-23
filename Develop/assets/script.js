@@ -4,6 +4,7 @@ function generatePassword(){
   //create variable for the promting of password length 
 let lengthofPassword = prompt("Please indicate the total length that you would like your password to be, with a min of 8 and limit of 128");
 //returns alert and stops program from running futher is users response is not a number 
+console.log(typeof lengthofPassword);
 if (isNaN(lengthofPassword)) {
    alert ("not valid")
    return
@@ -24,7 +25,6 @@ const  objArraysforPassword = {
   numericArray : [1,2,3,4,5,6,7,8,9],
 }
 
-console.log("hellloooo")
 //Global variable that will have the different value arrays initializing it to empty array
 let categoriesIncludedArray = [];
 //initializes password value provided by random function for password for specific array
@@ -46,7 +46,8 @@ if ( typeofCharLowerCase  == true){
 } 
  if (typeofCharSpecial == true) {
    categoriesIncludedArray = categoriesIncludedArray.concat(objArraysforPassword.specialCharArray);
-   passwordValue += Math.floor(Math.random()*(objArraysforPassword.specialCharArray.length));
+   
+  passwordValue += (objArraysforPassword.specialCharArray[(Math.floor(Math.random()*(objArraysforPassword.specialCharArray.length)))]);
    console.log(passwordValue);
    lengthofPassword--;
 } 
@@ -67,6 +68,7 @@ while(i < lengthofPassword) {
   const responseRandomArrayValue= Math.floor(Math.random()*(categoriesIncludedArray.length));
   const value = categoriesIncludedArray[responseRandomArrayValue] //go over
   passwordValue += value;
+  console.log(passwordValue);
   console.log(responseRandomArrayValue);
   i++;
 }
